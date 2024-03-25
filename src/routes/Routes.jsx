@@ -2,7 +2,9 @@ import { createBrowserRouter } from "react-router-dom";
 import Home from "../pages/Home";
 import Layout from "../layout/Layout";
 import BookList from "../pages/BookList";
-import Readablepages from '../pages/Readtopages';
+import Details from "../components/Details";
+
+
 
 export const router = createBrowserRouter([
   {
@@ -14,12 +16,13 @@ export const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/booklist",
-        element: <BookList />,
+        path : '/book/:bookId',
+        element: <Details/>,
+        loader: ()=> fetch(`../books.json`),
       },
       {
-        path: '/pagetoread',
-        element: <Readablepages/>
+        path: "/booklist",
+        element: <BookList />,
       }
     ],
   },
