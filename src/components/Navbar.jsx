@@ -27,36 +27,36 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow  rounded-box w-52 bg-none"
             >
               <li>
-                <NavLink to='/' className={({isActive})=>isActive ? 'border-2 rounded-xl border-[#386641] bg-none text-sm font-bold' : 'text-sm font-bold' }>Home</NavLink>
+                <NavLink to='/' className={({isActive})=>isActive ? 'border-2 rounded-xl border-[#76c893] bg-none text-sm font-bold' : 'text-sm font-bold' }>Home</NavLink>
               </li>
               <li>
-                <NavLink to='/booklist' className={({isActive})=>isActive ? 'border-2 rounded-xl border-[#386641] bg-none text-sm font-bold' : 'text-sm font-bold' }>Listed Books</NavLink>
+                <NavLink to='/booklist' className={({isActive})=>isActive ? 'border-2 rounded-xl border-[#76c893] bg-none text-sm font-bold' : 'text-sm font-bold' }>Listed Books</NavLink>
               </li>
               <li>
-                <NavLink to='/pagetoread' className={({isActive})=>isActive ? 'border-2 rounded-xl border-[#386641] bg-none text-sm font-bold' : 'text-sm font-bold' }>Pages To Read</NavLink>
+                <NavLink to='/pagetoread' className={({isActive})=>isActive ? 'border-2 rounded-xl border-[#76c893] bg-none text-sm font-bold' : 'text-sm font-bold' }>Pages To Read</NavLink>
               </li>
             </ul>
           </div>
           <NavLink to='/' className="cursor-pointer  font-extrabold text-3xl flex gap-0">
-            Book<span className="text-[#386641] ">Verdicts</span>
+            Book<span className="text-[#76c893] ">Verdicts</span>
           </NavLink>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
           <li>
-                <NavLink to='/' className={({isActive})=>isActive ? 'border-2 rounded-xl border-[#386641] bg-none text-sm font-bold' : 'text-sm font-bold'  }>Home</NavLink>
+                <NavLink to='/' className={({isActive})=>isActive ? 'border-2 rounded-xl border-[#76c893] bg-none text-sm font-bold' : 'text-sm font-bold'  }>Home</NavLink>
               </li>
               <li>
-                <NavLink to='/booklist'  className={({isActive})=>isActive ? 'border-2 rounded-xl border-[#386641] bg-none text-sm font-bold' : 'text-sm font-bold' }>Listed Books</NavLink>
+                <NavLink to='/booklist'  className={({isActive})=>isActive ? 'border-2 rounded-xl border-[#76c893] bg-none text-sm font-bold' : 'text-sm font-bold' }>Listed Books</NavLink>
               </li>
               <li>
-                <NavLink to='/pagetoread' className={({isActive})=>isActive ? 'border-2 rounded-xl border-[#386641] bg-none text-sm font-bold' : 'text-sm font-bold' }>Pages To Read</NavLink>
+                <NavLink to='/pagetoread' className={({isActive})=>isActive ? 'border-2 rounded-xl border-[#76c893] bg-none text-sm font-bold' : 'text-sm font-bold' }>Pages To Read</NavLink>
               </li>
           </ul>
         </div>
         <div className="navbar-end flex gap-4">
-          <a className="btn bg-[#386641] text-white">Sign in</a>
-          <a className="btn bg-[#386641] text-white">Sign up</a>
+          <a className="btn bg-[#76c893] text-white">Sign in</a>
+          <a className="btn bg-[#76c893] text-white">Sign up</a>
         </div>
       </div>
     </main>
