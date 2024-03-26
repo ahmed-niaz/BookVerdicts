@@ -1,5 +1,8 @@
-import { parse } from "postcss";
 import { Link, useLoaderData, useParams } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
+import { saveReadingBooks } from "../utils/localStorage";
 
 const Details = () => {
   const books = useLoaderData();
@@ -20,6 +23,11 @@ const Details = () => {
     publisher,
     category,
   } = book;
+
+  const handleReadBook = () => {
+    saveReadingBooks(idInt);
+    toast(`Read the book`);
+  };
   return (
     <main className="mt-10">
       <div className="flex gap-12">
@@ -32,7 +40,9 @@ const Details = () => {
           <div className="divider"></div>
           <p className="font-bold">{category}</p>
           <div className="divider"></div>
-          <p className="font-bold mb-4">Review: <span className="font-normal">{review}</span></p>
+          <p className="font-bold mb-4">
+            Review: <span className="font-normal">{review}</span>
+          </p>
           <div className="flex gap-2 ">
             {tags.map((tag, idx) => (
               <button
@@ -63,15 +73,23 @@ const Details = () => {
             </div>
           </div>
           <div>
-            <Link to="" className="btn bg-[#76c893] text-white">
-              Sign in
+            <Link
+              onClick={handleReadBook}
+              className="btn bg-[#76c893] text-white"
+            >
+              Read
             </Link>
-            <Link to="" className="btn bg-[#76c893] text-white">
-              Sign up
+            <Link
+              Link
+              to={`/booklist/${bookId}`}
+              className="btn bg-[#76c893] text-white"
+            >
+              WishList
             </Link>
           </div>
         </div>
       </div>
+      <ToastContainer />
     </main>
   );
 };

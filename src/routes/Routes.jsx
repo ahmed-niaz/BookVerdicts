@@ -3,6 +3,8 @@ import Home from "../pages/Home";
 import Layout from "../layout/Layout";
 import BookList from "../pages/BookList";
 import Details from "../components/Details";
+import ReadBooks from "../components/ReadBooks";
+import WishList from "../components/WishList";
 
 
 
@@ -23,6 +25,18 @@ export const router = createBrowserRouter([
       {
         path: "/booklist",
         element: <BookList />,
+        children: [
+          {
+            index: true,
+            element: <ReadBooks/>,
+            loader: ()=> fetch(`../books.json`),
+          },
+          {
+            path: 'wishlist',
+            element: <WishList/>,
+            loader: ()=> fetch(`../books.json`),
+          }
+        ]
       }
     ],
   },
