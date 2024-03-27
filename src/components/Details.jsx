@@ -45,26 +45,28 @@ const Details = () => {
   };
   return (
     <main className="mt-10 mb-4">
-      <div className="flex gap-12">
+      <div className="flex gap-12 flex-col lg:flex-row w-11/12 mx-auto lg:w-full">
         <div className="basis-1/2 bg-[#F3F3F3] flex items-center justify-center rounded-xl">
           <img className="w-3/4 opacity-90 p-20" src={image} alt="" />
         </div>
         <div>
-          <h2 className="text-5xl font-extrabold">{bookName}</h2>
-          <h2 className="font-bold my-8">By: {author}</h2>
-          <div className="divider"></div>
-          <p className="font-bold">{category}</p>
-          <div className="divider"></div>
+          <h2 className="text-2xl lg:text-5xl font-extrabold text-center lg:text-start">{bookName}</h2>
+          <h2 className="font-bold my-2 lg:my-8 text-center lg:text-start">By: {author}</h2>
+          <div className="divider hidden lg:block"></div>
+          <p className="font-bold text-center lg:text-start">{category}</p>
+          <div className="divider hidden lg:block"></div>
           <p className="font-bold mb-4">
             Review: <span className="font-normal">{review}</span>
           </p>
           <div className="flex gap-2 ">
+          <p className="flex items-center font-bold"> Tags</p>
             {tags.map((tag, idx) => (
+              
               <button
-                className="btn border-2 border-[#76c893] hover:border-[#76c893] hover:scale-105"
+                className="btn  bg-[#23BE0A0D] text-[#76c893] border-none rounded-full hover:scale-105"
                 key={idx}
               >
-                {tag}
+                {`#${tag}`}
               </button>
             ))}
           </div>
@@ -87,17 +89,17 @@ const Details = () => {
               <p className="font-bold">{rating}</p>
             </div>
           </div>
-          <div>
+          <div className="flex justify-center lg:justify-start gap-4">
             <Link
               onClick={handleReadBook}
-              className="btn bg-[#76c893] text-white"
+              className="btn bg-[#76c893]  text-white  hover:border-[#76c893] hover:scale-105 w-4/12 lg:w-2/12"
             >
               Read
             </Link>
             <Link
               Link
               onClick={handleWishList}
-              className="btn bg-[#76c893] text-white"
+              className="btn  bg-[#76c893]  text-white hover:border-[#76c893] hover:scale-105 w-4/12 lg:w-2/12"
             >
               WishList
             </Link>
