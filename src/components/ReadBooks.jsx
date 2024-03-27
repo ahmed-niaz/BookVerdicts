@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { getReadingBooks } from "../utils/localStorage";
-import ReadingBookCard from "./ReadingBookCard";
+
+import ReadWishListCard from "./ReadWishListCard";
 
 
 const ReadBooks = () => {
@@ -22,11 +23,12 @@ const ReadBooks = () => {
     },[])
     console.log(readingBook);
     return (
-        <main>
+        <main className="mb-8">
             
            {
-            readingBook.map((book)=> <ReadingBookCard key={book.bookId} book = {book}/>)
+            readingBook.map((book)=> <ReadWishListCard key={book.bookId} book = {book}/>)
            }
+           
         </main>
     );
 };

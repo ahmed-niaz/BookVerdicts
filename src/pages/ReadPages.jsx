@@ -1,6 +1,6 @@
-import React from 'react';
 
-const Readtopages = () => {
+
+const ReadPages = () => {
     return (
         <div>
             <h2>The page is reading</h2>
@@ -8,4 +8,4 @@ const Readtopages = () => {
     );
 };
 
-export default Readtopages;
+export default ReadPages;

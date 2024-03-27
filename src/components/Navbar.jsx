@@ -50,7 +50,7 @@ const Navbar = () => {
                 <NavLink to='/booklist'  className={({isActive})=>isActive ? 'border-2 rounded-xl border-[#76c893] bg-none text-sm font-bold' : 'text-sm font-bold' }>Listed Books</NavLink>
               </li>
               <li>
-                <NavLink to='/pagetoread' className={({isActive})=>isActive ? 'border-2 rounded-xl border-[#76c893] bg-none text-sm font-bold' : 'text-sm font-bold' }>Pages To Read</NavLink>
+                <NavLink to='/readpages' className={({isActive})=>isActive ? 'border-2 rounded-xl border-[#76c893] bg-none text-sm font-bold' : 'text-sm font-bold' }>Pages To Read</NavLink>
               </li>
           </ul>
         </div>

@@ -2,7 +2,7 @@ import { Link, useLoaderData, useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
-import { saveReadingBooks } from "../utils/localStorage";
+import { isBookInReadingList, isBookInWishList, saveReadingBooks, saveWishList } from "../utils/localStorage";
 
 const Details = () => {
   const books = useLoaderData();
@@ -25,11 +25,26 @@ const Details = () => {
   } = book;
 
   const handleReadBook = () => {
-    saveReadingBooks(idInt);
-    toast(`Read the book`);
+    if (isBookInReadingList(idInt)) {
+      toast.error(`Book is already in the reading list`);
+    } else {
+      saveReadingBooks(idInt);
+      toast.success(`Book added to the reading list`);
+    }
+  };
+
+  const handleWishList = () => {
+    if (isBookInReadingList(idInt)) {
+      toast.warning(`This book is already in the reading list. You cannot add it to the wishlist.`);
+    } else if (isBookInWishList(idInt)) {
+      toast.error(`Book is already in the wishlist`);
+    } else {
+      saveWishList(idInt);
+      toast.success(`Book added to the wishlist`);
+    }
   };
   return (
-    <main className="mt-10">
+    <main className="mt-10 mb-4">
       <div className="flex gap-12">
         <div className="basis-1/2 bg-[#F3F3F3] flex items-center justify-center rounded-xl">
           <img className="w-3/4 opacity-90 p-20" src={image} alt="" />
@@ -81,7 +96,7 @@ const Details = () => {
             </Link>
             <Link
               Link
-              to={`/booklist/${bookId}`}
+              onClick={handleWishList}
               className="btn bg-[#76c893] text-white"
             >
               WishList
