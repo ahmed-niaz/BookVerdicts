@@ -33,11 +33,11 @@ const Navbar = () => {
                 <NavLink to='/booklist' className={({isActive})=>isActive ? 'border-2 rounded-xl border-[#76c893] bg-none text-sm font-bold' : 'text-sm font-bold' }>Listed Books</NavLink>
               </li>
               <li>
-                <NavLink to='/pagetoread' className={({isActive})=>isActive ? 'border-2 rounded-xl border-[#76c893] bg-none text-sm font-bold' : 'text-sm font-bold' }>Pages To Read</NavLink>
+                <NavLink to='/readpages' className={({isActive})=>isActive ? 'border-2 rounded-xl border-[#76c893] bg-none text-sm font-bold' : 'text-sm font-bold' }>Pages To Read</NavLink>
               </li>
             </ul>
           </div>
-          <NavLink to='/' className="cursor-pointer  font-extrabold text-3xl flex gap-0">
+          <NavLink to='/' className="cursor-pointer  font-extrabold text-xl lg:text-3xl flex gap-0">
             Book<span className="text-[#76c893] ">Verdicts</span>
           </NavLink>
         </div>
