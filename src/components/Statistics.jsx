@@ -1,43 +1,54 @@
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid } from 'recharts';
+import PropTypes from 'prop-types'
+import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Tooltip, Legend } from 'recharts';
 
-const colors = [
-  '#FF6633', '#FFB399', '#FF33FF', '#FFFF99', '#00B3E6',
-  '#E6B333', '#3366E6', '#999966', '#99FF99', '#B34D4D',
-  '#80B300', '#809900', '#E6B3B3', '#6680B3', '#66991A',
-  '#FF99E6', '#CCFF1A', '#FF1A66', '#E6331A', '#33FFCC'
-];
+const colors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', 'red', 'pink', '#FFA500', '#800080', '#008000', '#000080', '#FFC0CB', '#008B8B'];
 
-const Statistics = ({ book }) => {
-  const bookNames = [];
-  const totalPage = [];
-  const { totalPages, bookName } = book;
-  bookNames.push(bookName);
-  totalPage.push(totalPages);
+const getPath = (x, y, width, height) => {
+  return `M${x},${y + height}C${x + width / 3},${y + height} ${x + width / 2},${y + height / 3} ${x + width / 2}, ${y}C${x + width / 2},${y + height / 3} ${x + (2 * width) / 3},${y + height} ${x + width}, ${y + height}Z`;
+};
 
-  const getPath = (x, y, width, height) => {
-    return `M${x},${y + height}C${x + width / 3},${y + height} ${x + width / 2},${y + height / 3} ${x + width / 2}, ${y} C${x + width / 2},${y + height / 3} ${x + (2 * width) / 3},${y + height} ${x + width}, ${y + height} Z`;
-  };
+const TriangleBar = (props) => {
+  const { fill, x, y, width, height } = props;
+  return <path d={getPath(x, y, width, height)} stroke="none" fill={fill} />;
+};
 
-  const TriangleBar = (props) => {
-    const { fill, x, y, width, height } = props;
-    return <path d={getPath(x, y, width, height)} stroke="none" fill={fill} />;
-  };
+const Statistics = ({ readingBook }) => {
 
-  console.log(bookNames, totalPages);
-  const data = [{ name: bookNames, uv: totalPages }];
+  // console.log(readingBook);
+  // const data = [{ name: bookName, pages: totalPages }];
 
   return (
-    <BarChart width={500} height={300} data={data} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
+    
+    <ResponsiveContainer width="100%" height={400}>
+    <BarChart
+      data={readingBook}
+      margin={{
+        top: 20,
+        right: 30,
+        left: 20,
+        bottom: 5,
+      }}
+    >
       <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="name" />
-      <YAxis />
-      <Bar dataKey="uv" fill="#8884d8" shape={<TriangleBar />} label={{ position: 'top' }}>
-        {data.map((entry, index) => (
-          <Cell key={`cell-${index}`} fill={colors[index % 20]} />
+      <XAxis dataKey="bookName" />
+      <YAxis dataKey="totalPages" />
+      <Tooltip />
+      <Legend />
+      <Bar
+        dataKey="totalPages"
+        fill="#8884d8"
+        shape={<TriangleBar />}
+        label={{ position: 'top' }}
+      >
+        {readingBook.map((entry, index) => (
+          <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
         ))}
       </Bar>
     </BarChart>
+  </ResponsiveContainer>
   );
 };
-
+Statistics.propTypes = {
+  readingBook: PropTypes.array,
+}
 export default Statistics;

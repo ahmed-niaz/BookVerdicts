@@ -19,14 +19,17 @@ const ReadPages = () => {
            }
            setReadingBook(rbook)
         }
-    },[])
+    },[books])
     console.log(readingBook);
    
     return (
         <div>
-            <h2>The page is reading {readingBook.length}</h2>
-            {
+            <h2 className="text-3xl lg:text-5xl font-extrabold text-center">Bar Chart</h2>
+            {/* {
                 readingBook.map(book => <Statistics key={book.bookId} book = {book}/>)
+            } */}
+            {
+                <Statistics key={readingBook.bookId} readingBook = {readingBook} />
             }
         </div>
     );
