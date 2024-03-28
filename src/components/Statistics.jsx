@@ -50,5 +50,6 @@ const Statistics = ({ readingBook }) => {
 };
 Statistics.propTypes = {
   readingBook: PropTypes.array,
+  
 }
 export default Statistics;

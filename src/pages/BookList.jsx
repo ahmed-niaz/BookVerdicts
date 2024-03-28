@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 
-const BookList = ({handleSort}) => {
+const BookList = () => {
   const [tabIdx, setTabIdx] = useState(0);
 
   return (
@@ -15,7 +15,7 @@ const BookList = ({handleSort}) => {
             tabIndex={0}
             className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
           >
-            <li onClick={()=>handleSort(`Rahat the great`)} className="cursor-pointer">
+            <li  className="cursor-pointer">
               <a>Rating</a>
             </li>
             <li>
