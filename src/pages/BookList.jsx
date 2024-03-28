@@ -7,8 +7,8 @@ const BookList = () => {
   return (
     <main>
       <div>
-        <div className="dropdown dropdown-bottom">
-          <div tabIndex={0} role="button" className="btn m-1">
+        <div className="dropdown dropdown-bottom flex justify-center">
+          <div tabIndex={0} role="button" className="btn m-1 w-[120px] bg-[#23BE0A0D] text-[#76c893] border-none rounded-full hover:scale-105">
             Sort By
           </div>
           <ul
